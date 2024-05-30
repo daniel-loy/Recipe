@@ -1,21 +1,34 @@
-function Card(props) {
-    console.log(props.title.urlToImage)
-    return (
-      
-        <div style={{ paddingTop: "5rem",marginLeft:"2rem"}}  >
-            {console.log(props)}
-            <div className="card" >
-           
-            <div className="card" style={{ width: "14rem", marginRight: "1rem"}} >
-                <img src={props.title.urlToImage==null?'https://static.feber.se/article_images/58/80/51/588051.jpg':props.title.urlToImage} className="card-img-top" alt="..." />
-                <div className="card-body">
-                    <h5 className="card-title">{props.title.title}</h5>
-                    {/* <p className="card-text">{props.title.content}</p> */}
-                </div>
-            </div>
-        </div>
-        </div>
 
-    )
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { Context } from "../Context";
+
+function Card({ element}) {
+  const navigate = useNavigate();
+  const { categories, setCategories } = useContext(Context);
+  const handleClick = (e) => {
+    e.preventDefault(); // Prevent default anchor behavior
+    setCategories(element.strCategory);
+    navigate("/Home2");
+  };
+
+  return (
+    <div style={{ paddingTop: "2rem", marginLeft: "2rem" }}>
+      
+      <div className="card text-bg-light p-3" style={{ width: "18rem" }}>
+        <img
+          src={element.strCategoryThumb || 'https://static.feber.se/article_images/58/80/51/588051.jpg'}
+          className="card-img-top"
+          alt={element.strCategory}
+          style={{height:"30vh"}}
+        />
+        <div className="card-body">
+          <h5 className="card-title" style={{display:"flex" ,justifyContent:"center"}}>{element.strCategory}</h5>
+        </div>
+        <a href="/Home2" className="stretched-link" onClick={handleClick}></a>
+      </div>
+    </div>
+  );
 }
+
 export default Card;
