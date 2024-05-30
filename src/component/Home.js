@@ -29,7 +29,7 @@ function Home() {
   return (
     <div>
       <Navbar/> 
-      <h1 style={{display:"flex",justifyContent:"center",paddingTop:"10vh"}}>Categories</h1>
+      <h1 style={{display:"flex",justifyContent:"center",paddingTop:"3vh",fontFamily:"cursive"}}>Categories</h1>
 
       <div className="row">
         {recipe.map((element) => (

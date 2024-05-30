@@ -13,14 +13,13 @@ function Card({ element}) {
   };
 
   return (
-    <div style={{ paddingTop: "2rem", marginLeft: "2rem" }}>
+    <div style={{ paddingTop: "2rem" }}>
       
-      <div className="card text-bg-light p-3" style={{ width: "18rem" }}>
+      <div className="card text-bg-light p-3" >
         <img
           src={element.strCategoryThumb || 'https://static.feber.se/article_images/58/80/51/588051.jpg'}
           className="card-img-top"
           alt={element.strCategory}
-          style={{height:"30vh"}}
         />
         <div className="card-body">
           <h5 className="card-title" style={{display:"flex" ,justifyContent:"center"}}>{element.strCategory}</h5>

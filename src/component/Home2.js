@@ -24,6 +24,7 @@ function Home2() {
       console.error("Error fetching data:", error);
     }
   };
+  // console.log(recipe[0].strCategory);
 
   useEffect(() => {
     if (categories) {
@@ -35,8 +36,11 @@ function Home2() {
   return (
     <div>
       <Navbar/>
+      <h1 style={{ display: "flex", justifyContent: "center", paddingTop: "3vh",fontFamily:"cursive" }}>
+        {categories}
+      </h1>
       {recipe === null ? (
-        <div className="alert alert-primary" role="alert" style={{textAlign:"center",marginTop:"10vh"}}>
+        <div className="alert alert-primary" role="alert" style={{textAlign:"center",marginTop:"3vh"}}>
         currently not available
       </div>
       ) : (
